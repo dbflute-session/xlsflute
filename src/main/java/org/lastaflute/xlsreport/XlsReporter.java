@@ -57,7 +57,7 @@ public class XlsReporter {
 
     protected InputStream toStream(String templateName) {
         final ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        final InputStream stream = loader.getResourceAsStream(templateName);
+        final InputStream stream = loader != null ? loader.getResourceAsStream(templateName) : null;
         if (stream == null) {
             String msg = "Not found the template in the classpath: " + templateName + " loader=" + loader;
             throw new ReportingXlsTemplateNotFoundException(msg);
