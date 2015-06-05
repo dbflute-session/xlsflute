@@ -32,8 +32,9 @@ import org.seasar.fisshplate.template.FPTemplate;
  */
 public class XlsReporter {
 
-    // TODO jflute lastaflute: [E] function: making xlsreport (2015/05/22)
     public XlsBook reportBook(String templateName, Map<String, Object> dataMap) {
+        assertArgumentNotNull("templateName", templateName);
+        assertArgumentNotNull("dataMap", dataMap);
         final FPTemplate template = newFPTemplate();
         final HSSFWorkbook hssf;
         try {
@@ -67,5 +68,17 @@ public class XlsReporter {
 
     protected XlsBook newXlsBook(HSSFWorkbook hssfWorkbook) {
         return new XlsBook(hssfWorkbook);
+    }
+
+    // ===================================================================================
+    //                                                                       Assist Helper
+    //                                                                       =============
+    protected void assertArgumentNotNull(String variableName, Object value) {
+        if (variableName == null) {
+            throw new IllegalArgumentException("The variableName should not be null.");
+        }
+        if (value == null) {
+            throw new IllegalArgumentException("The argument '" + variableName + "' should not be null.");
+        }
     }
 }

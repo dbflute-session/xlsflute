@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.dbflute.report</groupId>
 	<artifactId>xlsflute</artifactId>
-	<version>0.3.0-RC1</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>XlsFlute</name>
